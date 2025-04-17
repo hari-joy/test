@@ -1,0 +1,214 @@
+<!-- 1) Include Google Fonts for Margarine -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Margarine&display=swap" rel="stylesheet" />
+
+<!-- 2) Include Owl Carousel CSS (required) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3v8IQeVmxh/8vTXvtZnfnX4cmcd4E7uyYETe0NTbkGQf/I8umkdKPxKbsEC7ZLQcZ9vRtQghlkP9xv4v1yAg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-2f2ZhyP8+kXufhk3+AdUIn5UvZmMNoWc407AtKMQCOWFpU7oZGOeWnoe0GVWgYVz6X3CHqZQ0v8BE7EJbN57wg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<!-- Optional: Font Awesome for arrow icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-papNM1bPTNnNIy3a0v6oOFZvTgImAfuLOcD6YOjVrxWqSn+N3JXK+xqpjta4Y4J9+La6YTbj6M+bHfvD1z0fnw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<style>
+  /* Make the slider and slides full viewport height */
+  #my-unique-slider,
+  .unique-slider-carousel,
+  .unique-slide {
+    height: 100vh;
+  }
+
+  /* Owl Carousel NAV (arrows) */
+  .owl-nav button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 3px;
+    cursor: pointer;
+    z-index: 1000;
+  }
+  .owl-nav button.owl-prev {
+    left: 20px;
+  }
+  .owl-nav button.owl-next {
+    right: 20px;
+  }
+
+  /* Dots (bottom center) */
+  .owl-dots {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+    z-index: 1000;
+  }
+  .owl-dots .owl-dot {
+    display: inline-block;
+    margin: 0 5px;
+  }
+  .owl-dots .owl-dot span {
+    width: 10px;
+    height: 10px;
+    background: #ccc;
+    display: block;
+    border-radius: 50%;
+  }
+  .owl-dots .owl-dot.active span {
+    background: #0073e6;
+  }
+
+  /* Common slide styling */
+  .unique-slide {
+    position: relative;
+    display: flex;
+    align-items: center;
+    /* By default, center content horizontally;
+       we'll override for slide 3 to left-align */
+    justify-content: center; 
+    padding: 20px;
+    box-sizing: border-box;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  /* Desktop background images */
+  .unique-slide.unique-slide-1 {
+    background-image: url("https://theoasispublicschool.com/wp-content/themes/topnew/images/slider-images/Slider-1.webp");
+  }
+  .unique-slide.unique-slide-2 {
+    background-image: url("https://theoasispublicschool.com/wp-content/themes/topnew/images/slider-images/Slider-2.webp");
+  }
+  .unique-slide.unique-slide-3 {
+    background-image: url("https://theoasispublicschool.com/wp-content/themes/topnew/images/slider-images/Slider-3.webp");
+  }
+
+  /* Mobile background images */
+  @media only screen and (max-width: 768px) {
+    .unique-slide.unique-slide-1 {
+      background-image: url("https://theoasispublicschool.com/wp-content/themes/topnew/images/slider-images/Mob-Slider-1.webp");
+    }
+    .unique-slide.unique-slide-2 {
+      background-image: url("https://theoasispublicschool.com/wp-content/themes/topnew/images/slider-images/Mob-Slider-2.webp");
+    }
+    .unique-slide.unique-slide-3 {
+      background-image: url("https://theoasispublicschool.com/wp-content/themes/topnew/images/slider-images/Mob-Slider-3.webp");
+    }
+  }
+
+  /* Slide 3 specific: text on the left, use Margarine font */
+  .unique-slide-3 {
+    justify-content: flex-start; /* push content to left side */
+  }
+  .unique-slide-3 .unique-slide-content {
+    margin-left: 5%; /* shift content from the edge */
+    text-align: left;
+    max-width: 600px;
+    color: #fff;
+    font-family: "Margarine", cursive; /* the Margarine font */
+    text-shadow: 0 2px 3px rgba(0,0,0,0.5);
+  }
+  
+  /* Slide 3 headings, etc. */
+  .unique-slide-3 .sl-subtitle {
+    font-size: 1.6rem;
+    margin-bottom: 0.4em;
+  }
+  .unique-slide-3 .sl-title.mb-18 {
+    font-size: 3rem;
+    margin-bottom: 18px;
+  }
+  .unique-slide-3 .sl-desc {
+    font-size: 1.3rem;
+    margin-bottom: 1.2em;
+    line-height: 1.4em;
+  }
+
+  /* Buttons */
+  .slider-bottom.mt-40 {
+    margin-top: 40px;
+  }
+  .slider-bottom.mt-40 ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .slider-bottom.mt-40 li {
+    display: inline-block;
+    margin: 0 10px;
+  }
+  .readon.sl.style6 {
+    text-decoration: none;
+    padding: 12px 30px;
+    background-color: #4caf50; /* green shade */
+    color: #fff;
+    border-radius: 50px;
+    transition: background-color 0.3s ease;
+  }
+  .readon.sl.style6:hover {
+    background-color: #43a047; 
+  }
+  .readon.sl.style6.active {
+    background-color: #388e3c;
+  }
+</style>
+
+<div id="my-unique-slider" class="unique-slider-container">
+  <div class="owl-carousel unique-slider-carousel">
+    
+    <!-- Slide 1 (No content) -->
+    <div class="unique-slide unique-slide-1"></div>
+    
+    <!-- Slide 2 (No content) -->
+    <div class="unique-slide unique-slide-2"></div>
+    
+    <!-- Slide 3 (Content left-aligned, using Margarine font) -->
+    <div class="unique-slide unique-slide-3">
+      <div class="unique-slide-content">
+        <div class="sl-subtitle">Explore the World of</div>
+        <h1 class="sl-title mb-18">Our Graduates</h1>
+        <div class="sl-desc">
+          A child’s potential inspires us – Our aim is to nurture potential and scaffold young ones 
+          to help them find solutions and make them confident individuals to face the challenges of tomorrow!
+        </div>
+        <div class="slider-bottom mt-40">
+          <ul>
+            <li>
+              <a href="<?php echo get_site_url(); ?>/about-top-school/" class="readon sl style6">Know More</a>
+            </li>
+            <li>
+              <a href="<?php echo get_site_url(); ?>/contact-us/" class="readon sl style6 active">Contact Us</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Include jQuery and Owl Carousel JS -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJWUOe3eg5oz7DAByR9pr3dbJWbfZLoKpP4Y=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-Ol3Hfkqaw8CRrZb+uY51bWe04vB7S4O0c+uMVnLNvu3sa7vm3ec6xNEq6Kf7f4X/HOweOaWhSYdLJ81Se2fzpg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+  $(document).ready(function(){
+    $('.unique-slider-carousel').owlCarousel({
+      items: 1,
+      loop: true,
+      nav: true,         // Show nav arrows
+      dots: true,        // Show dot indicators
+      autoplay: true,
+      autoplayTimeout: 5000,
+      autoplayHoverPause: true,
+      navText: [
+        '<i class="fa fa-angle-left"></i>',
+        '<i class="fa fa-angle-right"></i>'
+      ]
+    });
+  });
+</script>
